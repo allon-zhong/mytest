@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class TestStream {
     public static void main(String[] args) {
-        testList5();
+        testList6();
     }
 
     //测试List<String>
@@ -25,13 +25,18 @@ public class TestStream {
         strings.stream().filter(r->Integer.valueOf(r)%2==0).forEach(r-> System.out.println("filter测试:"+r));
         List<String> collect = strings.stream().filter(r -> Integer.valueOf(r) % 2 == 0).collect(Collectors.toList());
         System.out.println("元素收集:"+collect);
-        Optional<String> max = strings.stream().max(new Comparator<String>() {
+        /*Optional<String> max = strings.stream().max(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 Integer integer1 = Integer.valueOf(01);
                 Integer integer2 = Integer.valueOf(02);
                 return integer1-integer2;
             }
+        });*/
+        Optional<String> max = strings.stream().max((o1,o2)->{
+            Integer integer1 = Integer.valueOf(01);
+            Integer integer2 = Integer.valueOf(02);
+            return integer1-integer2;
         });
         System.out.println("查找最大值为:"+max.get());
         String reduce = strings.stream().reduce( "0",(x, y) -> Integer.valueOf(x) + Integer.valueOf(y) + "");
@@ -101,5 +106,12 @@ public class TestStream {
             imgCheckPojos.add(noteQueryDO4);
         List<NoteQueryDO> collect = imgCheckPojos.stream().filter(r->"A".equals(r.getQuestiontype()) || "H".equals(r.getQuestiontype())).collect(Collectors.toList());
         System.out.println(collect);
+    }
+    private static  void testList6(){
+        Runnable ra = ()->{
+            System.out.println("111");
+        };
+        Thread thread = new Thread(ra);
+        thread.start();
     }
 }

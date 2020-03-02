@@ -32,7 +32,7 @@ public class APDes3 {
      */
     public static String encrypt(String text) throws
             Exception {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance("AES1/CBC/PKCS5Padding");
         byte[] keyBytes = new byte[16];
         byte[] ivBytes = new byte[16];
 
@@ -52,7 +52,7 @@ public class APDes3 {
         System.arraycopy(b, 0, keyBytes, 0, len);
         System.arraycopy(v, 0, ivBytes, 0, len2);
 
-        SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
+        SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES1");
         IvParameterSpec ivSpec = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
         BASE64Encoder decoder = new BASE64Encoder();
@@ -66,7 +66,7 @@ public class APDes3 {
      */
     public static String decrypt(String text) throws
             Exception {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance("AES1/CBC/PKCS5Padding");
         byte[] keyBytes = new byte[16];
         byte[] ivBytes = new byte[16];
 
@@ -86,7 +86,7 @@ public class APDes3 {
         System.arraycopy(b, 0, keyBytes, 0, len);
         System.arraycopy(v, 0, ivBytes, 0, len2);
 
-        SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
+        SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES1");
         IvParameterSpec ivSpec = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
         BASE64Decoder decoder = new BASE64Decoder();

@@ -1,6 +1,7 @@
 package com.zel.mytest.base;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class test {
@@ -22,9 +23,9 @@ public class test {
     }*/
 
     public static void main(String[] args) {
-        String applyNo="R0101010101";
-        StringBuffer stringBuffer = new StringBuffer("您好！ 您的理赔申请" + applyNo + "经审核,需补充办理相关手续。 详情请通过我司官微\"补充/补交资料\"推送或联系业务人员查询。 谢谢！");
-        System.out.println(stringBuffer);
+        /*String idCard = "421302199208165464";
+        System.out.println(idCard.replaceAll("(\\d{10})\\d{7}(\\d{1})","$1*******$2"));*/
+        ArrayList<ImgCheckPojo> imgCheckPojos = new ArrayList<>();
     }
 
 
