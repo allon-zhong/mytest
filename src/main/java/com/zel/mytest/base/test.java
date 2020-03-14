@@ -25,7 +25,13 @@ public class test {
     public static void main(String[] args) {
         /*String idCard = "421302199208165464";
         System.out.println(idCard.replaceAll("(\\d{10})\\d{7}(\\d{1})","$1*******$2"));*/
-        ArrayList<ImgCheckPojo> imgCheckPojos = new ArrayList<>();
+        ArrayList<ImgCheckPojo> imgCheckPojos=null;
+        try {
+            imgCheckPojos.add(new ImgCheckPojo());
+        }catch (Exception e){
+            String exceptionAllinformation_01 = Exceptionutil.getExceptionAllinformation_01(e);
+            System.out.println(exceptionAllinformation_01);
+        }
     }
 
 
